@@ -9,7 +9,7 @@ from .models import *
 # Create your views here.
 
 def get(request, city):
-name = {
+	name = {
 	"lon": "%s" %(city),
 	}
 return JsonResponse(name)
