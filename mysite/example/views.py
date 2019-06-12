@@ -13,7 +13,7 @@ def get(request, city):
     req = requests.get(hostname)
     soup = BeautifulSoup(req.content, "html.parser")
     
-    print(soup)
+    return(soup)
 
 def example_get(request, var_a):
 	try:
