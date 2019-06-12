@@ -44,7 +44,7 @@ def get(request, city):
     lon = longA+longB+longC
     lat = latA+latB+latC
    
-    return HttpResponse("{lat:"+str(lat)+" long"+str(lon)+"}")
+    return HttpResponse("lat: "+str(lat)+", lon: "+str(lon))
 
 def example_get(request, var_a):
 	try:
