@@ -9,11 +9,7 @@ from .models import *
 # Create your views here.
 
 def get(request, city):
-	try:
-		hostname = "https://www.google.com/maps/place/"+city
-    	req = requests.get(hostname)
-    	soup = BeautifulSoup(req.content, "html.parser")
-    	return(soup)
+	return(str.city)
 
 def example_get(request, var_a):
 	try:
