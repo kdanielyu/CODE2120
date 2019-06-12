@@ -9,7 +9,7 @@ from .models import *
 # Create your views here.
 
 def get(city):
-	name = city
+	name = str(city)
 	return (name)
 
 def example_get(request, var_a):
