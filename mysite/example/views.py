@@ -23,23 +23,33 @@ def get(request, city):
     longA = longOG.split("°")[0].split('′')
     longB = longOG.split("°")[1].split("′")[0]
     longC = longOG.split("′")[1].split("″")[0]
+    longD = longOG.split("°")[1].split('″')[1]
     longA = float(longA[0])/1
     longB = float(longB[0])/60
     if longC.isdigit():
         longC = float(longC[0])/3600
     else:
         longC = 0
+    if longD == "W":
+        longA = longA*(-1)
+    else:
+        longA = longA    
         
     latOG = latInput
     latA = latOG.split("°")[0].split('′')
     latB = latOG.split("°")[1].split("′")[0]
     latC = latOG.split("′")[1].split("″")[0]
+    latD = latOG.split("°")[1].split('″')[1]
     latA = float(latA[0])/1
     latB = float(latB[0])/60
     try:
         latC = float(latC[0])/3600
     except ValueError:
         latC = 0
+    if latD == "S":
+        latA = latA*(-1)
+    else:
+        latA = latA 
 
     lon = longA+longB+longC
     lat = latA+latB+latC
