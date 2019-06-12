@@ -9,7 +9,7 @@ from .models import *
 def example_get(request, var_a):
 	try:
 		returnob = {
-		var_a
+		print(var_a)
 		}
 		return JsonResponse(returnob)
 	except Exception as e:
