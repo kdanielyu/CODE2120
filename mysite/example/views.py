@@ -13,7 +13,6 @@ def get(request, city):
     hostname = "https://www.google.com/maps/place/"+city
     req = requests.get(hostname)
     soup = BeautifulSoup(req.content, "html.parser")
-    
     print(soup)
 
 
