@@ -8,10 +8,8 @@ from .models import *
 
 def example_get(request, var_a):
 	try:
-		returnob = {
-		%(var_a)
-		}
-		return JsonResponse(returnob)
+		returnob = var_a
+		return (returnob)
 	except Exception as e:
 		exc_type, exc_obj, exc_tb = sys.exc_info()
 		other = sys.exc_info()[0].__name__
