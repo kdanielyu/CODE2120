@@ -9,8 +9,42 @@ from .models import *
 # Create your views here.
 
 def get(city):
-	name = str(city)
-	return (name)
+    hostname = "https://en.wikipedia.org/wiki/"+str(city)
+    req = requests.get(hostname)
+    soup = BeautifulSoup(req.content, "html.parser")
+    
+    wikiLat = soup.find(class_='latitude')
+    wikiLong = soup.find(class_='longitude')
+    
+    latInput = wikiLat.get_text()
+    longInput = wikiLong.get_text()
+    
+    longOG = longInput
+    longA = longOG.split("°")[0].split('′')
+    longB = longOG.split("°")[1].split("′")[0]
+    longC = longOG.split("′")[1].split("″")[0]
+    longA = float(longA[0])/1
+    longB = float(longB[0])/60
+    if longC.isdigit():
+        longC = float(longC[0])/3600
+    else:
+        longC = 0
+        
+    latOG = latInput
+    latA = latOG.split("°")[0].split('′')
+    latB = latOG.split("°")[1].split("′")[0]
+    latC = latOG.split("′")[1].split("″")[0]
+    latA = float(latA[0])/1
+    latB = float(latB[0])/60
+    try:
+        latC = float(latC[0])/3600
+    except ValueError:
+        latC = 0
+
+    long = longA+longB+longC
+    lat = latA+latB+latC
+   
+    return (str(lat)+" "+str(long))
 
 def example_get(request, var_a):
 	try:
