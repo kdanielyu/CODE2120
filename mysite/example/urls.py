@@ -5,5 +5,5 @@ from . import views
 urlpatterns = [
 	path(r'example_get/<str:var_a>/',  views.example_get),
 	path(r'example_post/', views.example_post),
-	path(r'get/<str:city>/', views.get),
+	path(r'get/<city>/', views.get),
 ]

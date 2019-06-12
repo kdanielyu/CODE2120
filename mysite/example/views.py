@@ -8,7 +8,7 @@ from .models import *
 
 # Create your views here.
 
-def get(request, city):
+def get(city):
 	name = city
 	return (name)
 
