@@ -9,7 +9,8 @@ from .models import *
 # Create your views here.
 
 def get(request, city):
-	return(str(city))
+	name = %(city)
+	return print(name)
 
 def example_get(request, var_a):
 	try:
