@@ -41,10 +41,10 @@ def get(request, city):
     except ValueError:
         latC = 0
 
-    long = longA+longB+longC
+    lon = longA+longB+longC
     lat = latA+latB+latC
    
-    return (str(lat)+" "+str(long))
+    return HttpResponse(str(lat)+" "+str(lon))
 
 def example_get(request, var_a):
 	try:
