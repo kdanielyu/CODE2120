@@ -3,8 +3,19 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 import json
 from .models import *
+from lxml import html
+from bs4 import BeautifulSoup
+import requests
 
 # Create your views here.
+
+def get(request, city):
+    hostname = "https://www.google.com/maps/place/"+city
+    req = requests.get(hostname)
+    soup = BeautifulSoup(req.content, "html.parser")
+    
+    print(soup)
+
 
 def example_get(request, var_a):
 	try:
