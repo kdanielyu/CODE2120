@@ -8,7 +8,7 @@ from .models import *
 
 # Create your views here.
 
-def get(city):
+def get(request, city):
     hostname = "https://en.wikipedia.org/wiki/"+str(city)
     req = requests.get(hostname)
     soup = BeautifulSoup(req.content, "html.parser")
