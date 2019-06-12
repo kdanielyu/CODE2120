@@ -12,7 +12,7 @@ def get(request, city):
 	name = {
 	"lon": "%s" %(city),
 	}
-	print JsonResponse(name)
+	print (name)
 
 def example_get(request, var_a):
 	try:
