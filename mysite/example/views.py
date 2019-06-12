@@ -12,7 +12,7 @@ def get(request, city):
 	name = {
 	"lon": "%s" %(city),
 	}
-	print (name)
+	return (name)
 
 def example_get(request, var_a):
 	try:
