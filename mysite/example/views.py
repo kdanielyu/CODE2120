@@ -74,8 +74,8 @@ def example_post(request):
 	log = []
 	if request.method == "POST":
 		try:
-			data = request.POST
-			return HttpResponse(data)
+			data = request            
+			return HttpResponse(request)
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
