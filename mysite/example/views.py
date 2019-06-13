@@ -74,8 +74,9 @@ def example_post(request):
 	log = []
 	if request.method == "POST":
 		try:
-			data = request.POST["data"].split("[]")
-			return JsonResponse({"test":data})
+			data = request.POST["data"]
+            string = str(data)
+			return HttpResponse(string)
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
