@@ -76,7 +76,7 @@ def example_post(request):
 		try:
 			data = request.POST["data"]
             string = str(data)
-			return HttpResponse(string)
+			return JsonResponse(string)
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
