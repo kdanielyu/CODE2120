@@ -12,13 +12,13 @@ def get(request, city):
     hostname = "https://en.wikipedia.org/wiki/"+str(city)
     req = requests.get(hostname)
     soup = BeautifulSoup(req.content, "html.parser")
-    
+
     wikiLat = soup.find(class_='latitude')
     wikiLong = soup.find(class_='longitude')
-    
+
     latInput = wikiLat.get_text()
     longInput = wikiLong.get_text()
-    
+
     longOG = longInput
     longA = longOG.split("°")[0].split('′')
     longB = longOG.split("°")[1].split("′")[0]
@@ -33,8 +33,8 @@ def get(request, city):
     if longD == "W":
         longA = longA*(-1)
     else:
-        longA = longA    
-        
+        longA = longA
+
     latOG = latInput
     latA = latOG.split("°")[0].split('′')
     latB = latOG.split("°")[1].split("′")[0]
@@ -49,11 +49,11 @@ def get(request, city):
     if latD == "S":
         latA = latA*(-1)
     else:
-        latA = latA 
+        latA = latA
 
     lon = longA+longB+longC
     lat = latA+latB+latC
-   
+
     return HttpResponse("lat: "+str(lat)+", lon: "+str(lon))
 
 def example_get(request, var_a):
@@ -75,7 +75,7 @@ def example_post(request):
 	if request.method == "POST":
 		try:
 			data = request.POST["data"]
-			return JsonResponse({"log":log})
+			return JsonResponse({"log":data})
 		except Exception as e:
 			exc_type, exc_obj, exc_tb = sys.exc_info()
 			other = sys.exc_info()[0].__name__
